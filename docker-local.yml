@@ -22,11 +22,8 @@ services:
       dockerfile: ./compose/local/next/Dockerfile
     image: next_local
     container_name: local_next
-    # command: sh -c "npm run start:dev"
     command: sh -c "yarn dev"
-    # command: node dist/main
-    # command: npm run start:dev
-    # entrypoint: ["npm", "run", "start"]
+
     env_file:
       # - ./.envs/.local/.nest
       - ./.envlocal
@@ -34,5 +31,3 @@ services:
      - '3000:3000'
     volumes:
       - ./:/app
-    # depends_on:
-    #   - database
