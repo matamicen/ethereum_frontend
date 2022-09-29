@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+  # database:
+  #   # image: postgres:14
+  #   image: postgres:12-alpine
+  #   environment:
+  #    - POSTGRES_DB=blackprop
+  #    - POSTGRES_USER=admin
+  #    - POSTGRES_PASSWORD=postgres
+  #   container_name: local_database_blackprop
+  #   # env_file:
+  #   #   - ./.envdevaws
+  #   ports: 
+  #    - '5432:5432'
+  #   volumes:
+  #    - ./postgres_data:/var/lib/postgresql 
+
+  next1:
+    build:
+      context: .
+      dockerfile: ./compose/local/next/Dockerfile
+    image: next_local
+    container_name: local_next
+    # command: sh -c "npm run start:dev"
+    command: sh -c "yarn dev"
+    # command: node dist/main
+    # command: npm run start:dev
+    # entrypoint: ["npm", "run", "start"]
+    env_file:
+      # - ./.envs/.local/.nest
+      - ./.envlocal
+    ports: 
+     - '3000:3000'
+    volumes:
+      - ./:/app
+    # depends_on:
+    #   - database
