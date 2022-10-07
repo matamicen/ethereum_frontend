@@ -1,12 +1,26 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../../styles/Home.module.css'
+import Link from 'next/link';
+import styles from '../../styles/Home.module.scss'
 import {User} from '../../types'
+import  Button2  from '../../styles/components/buttton/button.component'
+
 
 
 const Home: NextPage<{users:User[]}> = ({users}) => {
   // function NextPage({users:string})  {
+
+
+    const handleLogout = () => {
+      console.log('test!')
+      // localStorage.removeItem(process.env.TOKEN_NAME);
+      // Cookie.remove(process.env.TOKEN_NAME);
+      // window.location.href = `${process.env.MARKET_PLACE_URL}/accounts/auth/login`;
+    };
+
+    const pizzaClick = () => console.log('Free pizza!')
+
   return (
     <div className={styles.container}>
       <Head>
@@ -25,6 +39,13 @@ const Home: NextPage<{users:User[]}> = ({users}) => {
             <h2> {us.name}</h2>
             <h2> {us.lastname}</h2>
             <h2> {us.email}</h2>
+            <Link href="#"><a onClick={pizzaClick} className="input_icon">Click me for pizza</a></Link>
+            <Link href="#"><a onClick={pizzaClick} className="input_icon">Click me for pizza</a></Link>
+ 
+             <Button2 label={'pizza444444'} title={'boton che'} onClick={pizzaClick}></Button2>
+ 
+            <Link href="about"><a><Button2 label={'About'} variant="primary" title={'boton che'}></Button2></a></Link>
+
           </div>
 
         )
@@ -43,9 +64,10 @@ export default Home
 
 export const getServerSideProps:GetServerSideProps = async (context) => {
 //  const res = await fetch("https://www.freetogame.com/api/games")
-const res = await fetch("http://ec2-3-92-193-151.compute-1.amazonaws.com/api/users")
+const res = await fetch("http://back.miyagido.net/api/users")
  const  us_result = await res.json()
  console.log(us_result)
+ console.log(process.env.API_URL)
 
  return {
   props: {
