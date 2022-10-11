@@ -45,6 +45,7 @@ const Home: NextPage<{users:User[]}> = ({users}) => {
              <Button2 label={'pizza444444'} title={'boton che'} onClick={pizzaClick}></Button2>
  
             <Link href="about"><a><Button2 label={'About'} variant="primary" title={'boton che'}></Button2></a></Link>
+            <Link href="contactUs"><a><Button2 label={'ContactUs'} variant="primary" title={'boton che'}></Button2></a></Link>
 
           </div>
 
