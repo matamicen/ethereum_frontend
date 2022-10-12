@@ -3,12 +3,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link';
 import styles from '../../styles/Home.module.scss'
-import {User} from '../../types'
+import {User_t} from '../../types'
 import  Button2  from '../../styles/components/buttton/button.component'
 
 
 
-const Home: NextPage<{users:User[]}> = ({users}) => {
+const Home: NextPage<{users:User_t[]}> = ({users}) => {
   // function NextPage({users:string})  {
 
 
