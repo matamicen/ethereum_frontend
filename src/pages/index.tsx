@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from '../../styles/Home.module.scss'
 import {User_t} from '../../types'
 import  Button2  from '../../styles/components/buttton/button.component'
+import {Wallet} from '../components/wallet'
 
 
 
@@ -30,6 +31,7 @@ const Home: NextPage<{users:User_t[]}> = ({users}) => {
       </Head>
 
       <div>
+      <Wallet/>
         Home
         { JSON.stringify(users)}
         {
