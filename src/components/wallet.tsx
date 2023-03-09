@@ -3,6 +3,7 @@ import  Button2  from '../../styles/components/buttton/button.component'
 import { allowedWallets, SessionWallet, SignedTxn } from 'algorand-session-wallet-deka';
 import { setSW, sw } from '../lib/sessionWallet';
 import { Buffer } from 'buffer';
+import Link from 'next/link';
 import algosdk, {
   makePaymentTxnWithSuggestedParamsFromObject,
   SignedTransaction,
@@ -221,6 +222,9 @@ export const Wallet = () => {
 
           <Button2 label={'SignIn'} variant="primary" title={'boton che'} onClick={getChallenge}></Button2>
           <Button2 label={'Barnji'} variant="primary" title={'boton che'} onClick={barnji}></Button2>
+          <Link href="about"><a><Button2 label={'About'} variant="primary" title={'boton che'}></Button2></a></Link>
+            <Link href="contactUs"><a><Button2 label={'ContactUs'} variant="primary" title={'boton che'}></Button2></a></Link>
+            <Link href="metamask"><a><Button2 label={'Metamask'} variant="primary" title={'boton che'}></Button2></a></Link>
       </div></>
   )
 }
